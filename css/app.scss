@@ -3,3 +3,40 @@ $enable-gradients: true;
 
 // Import all of Bootstrap
 @import "../bootstrap/scss/bootstrap";
+
+//html {
+//    font-size: 1rem;
+//}
+//
+//@include media-breakpoint-up(sm) {
+//    html {
+//        font-size: 1.2rem;
+//    }
+//}
+//
+//@include media-breakpoint-up(md) {
+//    html {
+//        font-size: 1.4rem;
+//    }
+//}
+//
+//@include media-breakpoint-up(lg) {
+//    html {
+//        font-size: 1.6rem;
+//    }
+//}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    
+    > .col,
+    > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.card-body {
+    padding: 10px;
+}
