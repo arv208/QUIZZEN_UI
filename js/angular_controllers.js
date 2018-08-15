@@ -5,10 +5,15 @@ theApp.controller('logInCtrlr', function($scope,$http){
 		var link = "http://localhost/xampp/restAPI/api/Hosts/login_hosts.php";
 		//post function provided by $http
 		$http.post(link,sendData).then(function(response){
-			alert(response.data);
+			if(response.data.message == "Host Login Success."){
+				alert("GAGANA BA");
+			}else{
+				$scope.reply = response.data;
+			}
 		}).catch(function(response) {
 		  alert("Error:" + response.status + " " + response);
 		});
 
 	}
 });
+
