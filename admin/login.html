@@ -28,7 +28,7 @@
                         <h1 class="text-primary my-3">Sign In</h1>
                         <div class="alert alert-danger alert-dismissible fade show" ng-show="reply">
                             <text>{{reply.message}}</text>
-                            <button type="button" class="close" data-dismiss="alert">
+                            <button type="button" class="close" data-ng-click="reply = null">
                                 <span>&times;</span>
                             </button>
                         </div>
@@ -45,7 +45,7 @@
                             <input type="password" class="form-control" placeholder="Password" ng-model="angPassword">
                         </div>
                         <div class="form-group">
-                            <input type="button" class="btn btn-outline-primary btn-block" value="Sign In" ng-click="logIn()">
+                            <input type="button" class="btn btn-outline-primary btn-block" value="Sign In" ng-click="logIn()" ng-disabled="!angPassword || !angUsername">
                         </div>
                         <p class="text-center">Forgot your password?</p>
                         <p class="text-primary text-center"><a href="signup.html">Don't have an account? Sign Up</a></p>

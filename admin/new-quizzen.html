@@ -10,10 +10,16 @@
         
         <!--    Font Awesome CSS    -->
         <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.css">
+
+        <script type="text/javascript" src="../js/angular.min.js"></script>
+
+        <script type="text/javascript" src="../js/angular_modules.js"></script>
+
+        <script type="text/javascript" src="../js/angular_controllers.js"></script>
         
         <title>Homepage | Quizzen</title>
     </head>
-    <body>
+    <body ng-app="theApp">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
             <a class="navbar-brand" href="home.html">
                 <img src="images/shape.png" width="30" height="30" class="d-inline-block align-top">
@@ -46,7 +52,7 @@
             <div class="row">
                 <div class="col-12 px-5">
                     <p class="text-center mb-3 h5">New Quizzen</p>
-                    <form>
+                    <form ng-controller="newQuizCtrlr">
                         <div class="alert alert-danger alert-dismissible fade show">
                             All fields are required
                             <button type="button" class="close" data-dismiss="alert">
@@ -54,10 +60,10 @@
                             </button>                            
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Quiz title">
+                            <input type="text" class="form-control" placeholder="Quiz title" >
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Quiz Description" rows="3"></textarea>
+                            <textarea class="form-control" placeholder="Quiz Description" rows="3" ></textarea>
                         </div>
                         <div class="custom-file mb-3">
                             <input type="file" accept="image/*" class="custom-file-input">
