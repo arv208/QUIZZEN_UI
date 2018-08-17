@@ -5,3 +5,9 @@ $('#sectionModalEdit').on('shown.bs.modal', function(event){
     var modal = $(this);
     modal.find('.modal-body input#sectionName').val(section);
 });
+
+$(document).ready(function(){
+    $("#chk-newsid").change(function(){
+        $("#lalala").toggleClass("d-none");
+    });
+});
