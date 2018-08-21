@@ -10,10 +10,17 @@
         
         <!--    Font Awesome CSS    -->
         <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.css">
+
+        <script type="text/javascript" src="../js/angular.min.js"></script>
+
+        <script type="text/javascript" src="../js/angular_modules.js"></script>
+
+        <script type="text/javascript" src="../js/angular_controllers.js"></script>
         
         <title>Add Student</title>
     </head>
-    <body>
+    <body ng-app="theApp" ng-controller="addStudentCtrlr">
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
             <a class="navbar-brand" href="home.html">
                 <img src="images/shape.png" width="30" height="30" class="d-inline-block align-top">
@@ -45,11 +52,11 @@
         <div class="container-fluid" style="margin-top: 60px;">
             <div class="row">
                 <div class="col-12 col-md-6 px-5">
-                    <form>
+                    <form name="myForm">
                         <h1 class="text-primary my-3">Add Student</h1>
-                        <div class="alert alert-danger alert-dismissible fade show">
-                            All fields are required
-                            <button type="button" class="close" data-dismiss="alert">
+                        <div class="alert alert-danger alert-dismissible fade show" ng-show="error">
+                            {{error.error}}
+                            <button type="button" class="close" data-dismiss="alert" ng-click="error = null">
                                 <span>&times;</span>
                             </button>
                         </div>
@@ -57,51 +64,44 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-id-badge"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Student ID">
+                            <input type="number" class="form-control" placeholder="Student ID" ng-model="studid" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
                             </div>
-                            <select class="custom-select">
-                                <option>Bachelor of Science in Information Technology</option>
-                                <option>Associate in Computer Technology</option>
-                                <option>Computer Technology</option>
-                                <option>Bachelor of Library and Information Science</option>                                
+                            <select class="custom-select" ng-options="c.course_id as c.course for c in replyCourses" ng-model="courseId" required>
+                                                                
                             </select>
                         </div>   
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
                             </div>
-                            <select class="custom-select">
-                                <option>ACT 2S-G1</option>
-                                <option>ACT 2S-G2</option>
-                                <option>BSIT 4C-G1</option>
-                                <option>BSIT 4C-G2</option>
-                                <option>OJT NAAAAA</option>
+                            <select class="custom-select" ng-options="s.section_id as s.section for s in replySections" ng-model="sectionId" required>
+
                             </select>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-beer"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="First Name">
+                            <input type="text" class="form-control" placeholder="First Name" ng-model="fname" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-beer"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Middle Name">
+                            <input type="text" class="form-control" placeholder="Middle Name" ng-model="mname" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-beer"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Last Name">
+                            <input type="text" class="form-control" placeholder="Last Name" ng-model="lname" required>
                         </div>
                         <div class="forn-group">
-                            <input type="button" class="btn btn-outline-primary btn-block" value="Add Student">
+                            <input type="button" class="btn btn-outline-primary btn-block" value="Add Student" ng-disabled="myForm.$invalid" ng-click="addStudent()">
                         </div>
                     </form>
                 </div>
