@@ -25,9 +25,9 @@
                 <div class="col-12 col-md-6 px-5">
                     <form name="myForm">
                         <h1 class="text-primary my-3">Sign Up</h1>
-                        <div class="alert alert-danger alert-dismissible fade show" ng-show="reply">
-                            {{reply.message}}
-                            <button type="button" class="close" data-dismiss="alert">
+                        <div class="alert alert-danger alert-dismissible fade show" ng-show="error">
+                            <text>{{error.message}}</text>
+                            <button type="button" class="close" data-ng-click="reply = null">
                                 <span>&times;</span>
                             </button>
                         </div>
