@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-6 px-5">
-                    <form>
+                    <form name="myForm">
                         <h1 class="text-primary my-3">Sign Up</h1>
                         <div class="alert alert-danger alert-dismissible fade show" ng-show="reply">
                             {{reply.message}}
@@ -35,40 +35,40 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-beer"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="First Name" ng-model="firstname">
+                            <input type="text" class="form-control" placeholder="First Name" ng-model="firstname" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-beer"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Middle Name" ng-model="middlename">
+                            <input type="text" class="form-control" placeholder="Middle Name" ng-model="middlename" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-beer"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Last Name" ng-model="lastname">
+                            <input type="text" class="form-control" placeholder="Last Name" ng-model="lastname" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Username" ng-model="username">
+                            <input type="text" class="form-control" placeholder="Username" ng-model="username" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Password" ng-model="password1">
+                            <input type="password" class="form-control" placeholder="Password" ng-model="password1" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Re-type password" ng-model="password2">
+                            <input type="password" class="form-control" placeholder="Re-type password" ng-model="password2" required>
                         </div>
                         <div class="form-group">
-                            <input type="button" class="btn btn-outline-primary btn-block" value="Sign Up" ng-click="signUp()" ng-disabled="checkFields()">
+                            <input type="button" class="btn btn-outline-primary btn-block" value="Sign Up" ng-click="signUp()" ng-disabled="myForm.$invalid">
                         </div>
                         <p class="text-primary text-center"><a href="login.html">Already have an account? Sign In</a></p>
                     </form>
