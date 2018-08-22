@@ -1,5 +1,6 @@
 // Variable overides
 $enable-gradients: true;
+$menu-line-height: 32px;
 
 // Import all of Bootstrap
 @import "../bootstrap/scss/bootstrap";
@@ -39,4 +40,17 @@ $enable-gradients: true;
 .question-pic {
     width: 88.5px;
     height: 88.5px;
+}
+
+.menu-container {
+    > li.list-group-item {
+        border: 0;
+        border-radius: 10px;
+        line-height: $menu-line-height;
+        margin-bottom: 5px;
+    }
+}
+
+.menu-option {
+    line-height: $menu-line-height;
 }
