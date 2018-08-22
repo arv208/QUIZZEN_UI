@@ -11,9 +11,15 @@
         <!--    Font Awesome CSS    -->
         <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.css">
         
+         <script type="text/javascript" src="../js/angular.min.js"></script>
+
+        <script type="text/javascript" src="../js/angular_modules.js"></script>
+
+        <script type="text/javascript" src="../js/angular_controllers.js"></script>
+        
         <title>Homepage | Quizzen</title>
     </head>
-    <body>
+    <body ng-app="theApp" ng-controller="listSecCtrlr">
         <div class="modal fade" id="sectionModalEdit" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -90,8 +96,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>ACT 1S-G2</td>
+                                 <tr ng-repeat="section in sections">
+                                    <td>{{section.section}}</td>
                                     <td>
                                         <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#sectionModalEdit" data-section="1S-G2">Update</button>
                                     </td>                                
@@ -99,7 +105,7 @@
                                         <button type="button" class="btn btn-danger btn-block">Delete</button>
                                     </td>
                                 </tr>
-                                <tr>
+                               <!-- <tr>
                                     <td>ACT 2S-G2</td>
                                     <td>
                                         <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#sectionModalEdit" data-section="2S-G2">Update</button>
@@ -125,7 +131,7 @@
                                     <td>
                                         <button type="button" class="btn btn-danger btn-block">Delete</button>
                                     </td>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>
