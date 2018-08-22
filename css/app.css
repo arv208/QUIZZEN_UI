@@ -6834,4 +6834,13 @@ a.text-dark:hover, a.text-dark:focus {
   width: 88.5px;
   height: 88.5px; }
 
+.menu-container > li.list-group-item {
+  border: 0;
+  border-radius: 10px;
+  line-height: 32px;
+  margin-bottom: 5px; }
+
+.menu-option {
+  line-height: 32px; }
+
 /*# sourceMappingURL=app.css.map */
