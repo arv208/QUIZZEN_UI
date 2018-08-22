@@ -14,6 +14,39 @@
         <title>Homepage | Quizzen</title>
     </head>
     <body>
+        <div class="modal fade" id="partModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Part</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="card col-5 mx-1 my-1 float-left bg-primary">
+                                    <p class="my-4">Arrange the sequence <span class="text-right"><i class="far fa-question-circle"></i></span></p>
+                                </div>
+                                <div class="card col-5 mx-1 my-1 float-left bg-primary">
+                                    <p class="my-4">Multiple Choice <span><i class="far fa-question-circle"></i></span></p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="card col-5 mx-1 my-1 float-left bg-primary">
+                                    <p class="my-4">True or False <span><i class="far fa-question-circle"></i></span></p>
+                                </div>
+                                <div class="card col-5 mx-1 my-1 float-left bg-primary">
+                                    <p class="my-4">Guess the word <span><i class="far fa-question-circle"></i></span></p>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
             <a class="navbar-brand" href="home.html">
                 <img src="images/shape.png" width="30" height="30" class="d-inline-block align-top">
@@ -45,10 +78,84 @@
         <div class="container-fluid" style="margin-top: 80px;">
             <div class="row">
                 <div class="col-12">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPart-modal">Add Part</button>
+                    <p class="text-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#partModal">Add Part <span class="badge badge-light">1/4</span></button>
+                        <button type="button" class="btn btn-primary">View Answers</button>
+                    </p>
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle col-12" type="button" id="partsSelector" data-toggle="dropdown">All Parts</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">All Parts</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Part 1</a>
+                            <a class="dropdown-item" href="#">Part 2</a>
+                            <a class="dropdown-item" href="#">Part 3</a>
+                            <a class="dropdown-item" href="#">Part 4</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12">
-                    
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card my-2">
+                                <div class="card-body">
+                                    <div class="col-8 float-left">
+                                        <h5 class="card-title">What's your ulam pare?</h5>
+                                    </div>
+                                    <div class="col-4 float-left text-right">
+                                        <img class="img-fluid rounded question-pic" src="images/chris.jpg">
+                                    </div>
+                                    
+                                    <ul class="col-12 mt-2 float-left">
+                                        <li class="list-group-item">Allen</li>
+                                        <li class="list-group-item">Ronquillo</li>
+                                        <li class="list-group-item">Villanueva</li>
+                                        <li class="list-group-item">ARV208</li>
+                                    </ul>
+                                </div>                                
+                            </div>
+                            <div class="card my-2">
+                                <div class="card-body">
+                                    <div class="col-8 float-left">
+                                        <h5 class="card-title">Overload</h5>
+                                    </div>
+                                    <div class="col-4 float-left">
+                                        <img class="img-fluid rounded question-pic question-pic" src="images/cat.jpg">
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="card my-2">
+                                <div class="card-body">
+                                    <div class="col-8 float-left">
+                                        <h5 class="card-title">TJN Pasalubong Custard Cake</h5>
+                                    </div>
+                                    <div class="col-4 float-left">
+                                        <img class="img-fluid rounded question-pic" src="images/marianne.jpg">
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="card my-2">
+                                <div class="card-body">
+                                    <div class="col-8 float-left">
+                                        <h5 class="card-title">Fita</h5>
+                                    </div>
+                                    <div class="col-4 float-left">
+                                        <img class="img-fluid rounded question-pic" src="images/roseann.jpg">
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="card my-2">
+                                <div class="card-body">
+                                    <div class="col-8 float-left">
+                                        <h5 class="card-title">Sky Flakes</h5>
+                                    </div>
+                                    <div class="col-4 float-left">
+                                        <img class="img-fluid rounded question-pic" src="images/marianne.jpg">
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
             </div>
         </div>

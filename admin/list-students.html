@@ -10,10 +10,16 @@
         
         <!--    Font Awesome CSS    -->
         <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.css">
+
+        <script type="text/javascript" src="../js/angular.min.js"></script>
+
+        <script type="text/javascript" src="../js/angular_modules.js"></script>
+
+        <script type="text/javascript" src="../js/angular_controllers.js"></script>
         
         <title>Homepage | Quizzen</title>
     </head>
-    <body>
+    <body ng-app="theApp" ng-controller="listCtrlr">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
             <a class="navbar-brand" href="home.html">
                 <img src="images/shape.png" width="30" height="30" class="d-inline-block align-top">
@@ -61,54 +67,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2015164064</td>
-                                    <td>Allen</td>
-                                    <td>Ronquillo</td>
-                                    <td>Villanueva</td>
-                                    <td>BSIT 4C-G1</td>
-                                </tr>
-                                <tr>
-                                    <td>2015000001</td>
-                                    <td>Marianne</td>
-                                    <td>Abanico</td>
-                                    <td>De Asis</td>
-                                    <td>BSIT 4C-G1</td>
-                                </tr>
-                                <tr>
-                                    <td>2015000002</td>
-                                    <td>Chris Joshua</td>
-                                    <td>G</td>
-                                    <td>Manuel</td>
-                                    <td>BSIT 4C-G1</td>
-                                </tr>
-                                <tr>
-                                    <td>2015000003</td>
-                                    <td>Rose Ann</td>
-                                    <td>Reyes</td>
-                                    <td>Gabriel</td>
-                                    <td>BSIT 4C-G1</td>
-                                </tr>
-                                <tr>
-                                    <td>2015000004</td>
-                                    <td>Gian Francis</td>
-                                    <td>Trillana</td>
-                                    <td>Perez</td>
-                                    <td>BSIT 4C-G1</td>
-                                </tr>
-                                <tr>
-                                    <td>2015000005</td>
-                                    <td>Jay-are</td>
-                                    <td>A</td>
-                                    <td>Troyo</td>
-                                    <td>BSIT 4C-G1</td>
-                                </tr>
-                                <tr>
-                                    <td>2015000006</td>
-                                    <td>Denise Kristine</td>
-                                    <td>D</td>
-                                    <td>Sison</td>
-                                    <td>BSIT 4C-G1</td>
+                                <tr ng-repeat="student in students">
+                                    <td>{{student.student_id}}</td>
+                                    <td>{{student.firstname}}</td>
+                                    <td>{{student.middlename}}</td>
+                                    <td>{{student.lastname}}</td>
+                                    <td>{{student.course}} 4C-G1</td>
                                 </tr>
                             </tbody>
                         </table>
