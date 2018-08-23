@@ -1,3 +1,26 @@
+var theApp = angular.module('theApp',['ngRoute']);
+
+theApp.config(['$routeProvider', function($routeProvider) {
+        //$locationProvider.html5Mode(true);
+    
+	$routeProvider
+		.when('/home' , {
+			templateUrl: 'login.html',
+            controller: 'logInCtrlr'
+		})
+        .when('/myquizzen' , {
+			templateUrl: 'howm.html'
+		})
+        .when('/signup', {
+            templateUrl: 'signup.html'
+        })
+        
+        .otherwise({
+			redirectTo: '/home'
+		})
+}]);
+
+
 theApp.controller('logInCtrlr', function($scope,$http){
 	$scope.logIn = function(){
 		//parse the data as json
@@ -7,6 +30,7 @@ theApp.controller('logInCtrlr', function($scope,$http){
 		$http.post(link,sendData).then(function(response){
 			if(response.data.success){
 				alert("yes!");
+                window.location = "#!/myquizzen";
 			}else{
 				$scope.error = response.data;
 			}
