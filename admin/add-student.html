@@ -70,16 +70,18 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
                             </div>
-                            <select class="custom-select" ng-options="c.course_id as c.course for c in replyCourses" ng-model="courseId" required>
-                                                                
+                            <select class="custom-select" ng-change="soHot()" ng-options="c.course_id as c.course for c in replyCourses" ng-model="courseId" required>
+                                 <option disabled hidden value="">Course</option>        
                             </select>
                         </div>   
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
                             </div>
-                            <select active class="custom-select" ng-options="s.section_id as s.section for s in replySections" ng-model="sectionId" required>
-
+                            <select active class="custom-select" ng-change="soHot()" ng-options="s.section_id as s.section for s in replySections 
+                            | filter:{course_id:courseId}" ng-model="sectionId" ng-disabled="!courseId" required>
+                        
+                                 <option disabled hidden value="">Section</option>        
                             </select>
                         </div>
                         <div class="input-group mb-3">

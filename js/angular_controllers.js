@@ -91,13 +91,13 @@ theApp.controller('addSectionCtrlr',function($scope,$http){
 
 theApp.controller('addStudentCtrlr',  function($scope,$http){
 
-	$scope.courseId = "1";
-	$scope.sectionId = "1";
 	//GET COURSES  AND SECTIONS
 	getLink = 'http://localhost/restAPI/api/Hosts/list_courses.php'
+
 	$http.get(getLink).then(function(response){
-		$scope.replyCourses = response.data.courses;
 		$scope.replySections = response.data.sections;
+		$scope.replyCourses = response.data.courses;
+		
 	}).catch(function(response){
 		console.log(response);
 	});
@@ -135,11 +135,21 @@ theApp.controller('listCtrlr', function($scope,$http){
 theApp.controller('listSecCtrlr', function($scope,$http){
     //GETTING SECTIONS ONLY TO REST
 	getLink = 'http://localhost/restAPI/api/Hosts/list_courses.php';
-
+  $http.get(getLink).then(function(response){
+    $scope.sections = response.data.sections;
+  }).catch(function(response){
+    console.log(response);
+  });
+  
+  /*theApp.controller('triad',function($scope,$http){
+	getLink = 'http://localhost/restAPI/api/Hosts/list_courses.php'
 	$http.get(getLink).then(function(response){
-		$scope.sections = response.data.sections;
+		$scope.replySections = response.data.sections;
+		$scope.selected = $scope.replySections[0];
+
+		console.log(response.data);
 	}).catch(function(response){
 		console.log(response);
-	});
-    
-});
+	});*/
+  
+
