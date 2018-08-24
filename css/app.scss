@@ -1,25 +1,22 @@
 // Variable overides
-$enable-gradients: true;
+//$enable-gradients: true;
 $menu-line-height: 32px;
 $table-border: 2px solid #e9ebee;
 
 // Import all of Bootstrap
 @import "../bootstrap/scss/bootstrap";
 
-//@include media-breakpoint-up(sm) {
-//    
-//}
-//
-//@include media-breakpoint-up(md) {
-//    
-//}
-//
-//@include media-breakpoint-up(lg) {
-//    
-//}
-
 body {
     background-color: transparent;
+}
+
+@font-face {
+    font-family: ProximaNova_Reg;
+    src: url("../admin/ProximaNova-Regular.otf");
+}
+
+* {
+    font-family: ProximaNova_Reg;
 }
 
 .no-gutters {
@@ -48,7 +45,7 @@ body {
 }
 
 .menu-container {
-    > li.list-group-item {
+    > li.list-group-item {        
         border: 0;
         border-radius: 10px;
         line-height: $menu-line-height;
@@ -61,28 +58,33 @@ body {
 }
 
 .table {
-    thead th {
+    thead th {        
         border: none;
         color: #848d95;
+        padding-bottom: 5px;
+        
+        background-color: #f8f9fa;
     }
     
     tr {
-        background-color: white;
+        background-color: white;                
     }
     
     td {
         border-top: $table-border;
         border-bottom: $table-border;
+        
+        &:first-child {
+            border-left: $table-border;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        
+        &:last-child {
+            border-right: $table-border;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
     }
-    
-    td:first-child {
-        border-left: $table-border;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
-    td:last-child {
-        border-right: $table-border;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }                
 }
