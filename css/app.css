@@ -6815,6 +6815,9 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+body {
+  background-color: transparent; }
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0; }
@@ -6842,5 +6845,22 @@ a.text-dark:hover, a.text-dark:focus {
 
 .menu-option {
   line-height: 32px; }
+
+.table thead th {
+  border: none;
+  color: #848d95; }
+.table tr {
+  background-color: white; }
+.table td {
+  border-top: 2px solid #e9ebee;
+  border-bottom: 2px solid #e9ebee; }
+.table td:first-child {
+  border-left: 2px solid #e9ebee;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px; }
+.table td:last-child {
+  border-right: 2px solid #e9ebee;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px; }
 
 /*# sourceMappingURL=app.css.map */

@@ -20,6 +20,8 @@
         <title>Homepage | Quizzen</title>
     </head>
     <body ng-app="theApp" ng-controller="listSecCtrlr">
+        
+        <!--    MODAL    -->
         <div class="modal fade" id="sectionModalEdit" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -52,86 +54,101 @@
             </div>
         </div>
         
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
-            <a class="navbar-brand" href="home.html">
-                <img src="images/shape.png" width="30" height="30" class="d-inline-block align-top">
-                Quizzen
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="mainMenu">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Allen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Marianne</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Chris</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Out</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        
-        <div class="container-fluid" style="margin-top: 80px;">
-            <div class="row">
-                <div class="col-12 px-5">
-                    <p class="text-center mb-3 h5">Section List</p>
+        <div class="container-fluid">
+            <div class="row" style="height: 100vh;">
+                <div class="position-fixed col-md-3 bg-light border-right" style="height: 100vh; flex: 0 0 20%;">
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <div class="media">
+                                <img class="mr-3" src="images/man.png">
+                                <div class="media-body">
+                                    <h5 class="mt-2 mb-0">QZNUSR0208</h5>
+                                    <span class="text-secondary">Allen Villanueva</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider mt-4"></div>
+                        </div>                        
+                        <div class="col-md-12">
+                            <ul class="list-group menu-container list-group-flush">
+                                <li class="list-group-item">
+                                    <img src="images/house.png" class="mr-2">
+                                    Dashboard                                    
+                                </li>
+                                <li class="list-group-item" data-toggle="collapse" data-target="#sectionCollapse">
+                                    <img src="images/teamwork.png" class="mr-2">
+                                    Section
+                                </li>                                
+                                <li class="list-group-item">
+                                    <img src="images/user.png" class="mr-2">
+                                    Student
+                                </li>
+                                <li class="list-group-item">
+                                    <img src="images/exam.png" class="mr-2">
+                                    Quizzes
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12 position-absolute" style="bottom: 0;">                            
+                            <ul class="list-group menu-container list-group-flush">
+                                <li class="list-group-item">
+                                    <img src="images/sign-out.png" class="mr-2">
+                                    Sign Out
+                                </li>                                
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="col-12">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
+                <div class="col-md-9 d-flex ml-auto float-left" style="height: 130px;">
+                    <div class="d-flex flex-column col-md-6 float-left">
+                        <p class="mt-4 mb-0 h1 text-primary">Sections</p>
+                        <p class="h6 text-secondary">List of sections</p>
+                    </div>
+                    <div class="d-flex justify-content-end align-items-center col-md-6 float-left text-right">
+                        <button class="btn btn-primary">Add Student</button>
+                    </div>                    
+                </div>
+                
+                <div class="col-md-9 ml-auto">
+                    <div class="col-md-4 input-group mb-3 float-left">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="btn" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-3 dropdown float-left">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="sort-dropdown" data-toggle="dropdown">Sort</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Di ko</a>
+                            <a class="dropdown-item" href="#">pa alam</a>
+                            <a class="dropdown-item" href="#">ilalagay</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-flex ml-auto col-md-9">
+                    <div class="table-responsive ml-3">
+                        <table class="table" style="border-collapse: separate; border-spacing: 0 10px;">
                             <thead>
                                 <tr>
                                     <th>Section</th>
+                                    <th>Date</th>
                                     <th colspan="2">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                  <tr ng-repeat="section in sections">
                                     <td>{{section.section}}</td>
+                                    <td>2018</td>
                                     <td>
                                         <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#sectionModalEdit" data-section="1S-G2">Update</button>
                                     </td>                                
                                     <td>
                                         <button type="button" class="btn btn-danger btn-block">Delete</button>
                                     </td>
-                                </tr>
-                               <!-- <tr>
-                                    <td>ACT 2S-G2</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#sectionModalEdit" data-section="2S-G2">Update</button>
-                                    </td>                                
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-block">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>BSIT 3C-G1</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#sectionModalEdit" data-section="3C-G2">Update</button>
-                                    </td>                                
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-block">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>BSIT 4C-G1</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#sectionModalEdit" data-section="4C-G2">Update</button>
-                                    </td>                                
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-block">Delete</button>
-                                    </td>
-                                </tr>-->
+                                </tr>                               
                             </tbody>
                         </table>
                     </div>

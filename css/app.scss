@@ -1,6 +1,7 @@
 // Variable overides
 $enable-gradients: true;
 $menu-line-height: 32px;
+$table-border: 2px solid #e9ebee;
 
 // Import all of Bootstrap
 @import "../bootstrap/scss/bootstrap";
@@ -16,6 +17,10 @@ $menu-line-height: 32px;
 //@include media-breakpoint-up(lg) {
 //    
 //}
+
+body {
+    background-color: transparent;
+}
 
 .no-gutters {
     margin-right: 0;
@@ -53,4 +58,31 @@ $menu-line-height: 32px;
 
 .menu-option {
     line-height: $menu-line-height;
+}
+
+.table {
+    thead th {
+        border: none;
+        color: #848d95;
+    }
+    
+    tr {
+        background-color: white;
+    }
+    
+    td {
+        border-top: $table-border;
+        border-bottom: $table-border;
+    }
+    
+    td:first-child {
+        border-left: $table-border;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    td:last-child {
+        border-right: $table-border;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }                
 }
