@@ -51,8 +51,7 @@ theApp.controller('logInCtrlr', function($scope,$http,sessionService){
 		//post function provided by $http
 		$http.post(link,sendData).then(function(response){
 			if(response.data.success){
-				alert("yes!");
-				sessionService.set('user',$scope.angUsername); // se
+				sessionService.set('user',response.data.session); // se
                 window.location = "#!/myquizzen";
 			}else{
 				$scope.error = response.data;
