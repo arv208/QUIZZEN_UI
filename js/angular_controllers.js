@@ -36,6 +36,10 @@ theApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'signup.html',
             controller: 'registerCtrlr'
         })
+    
+        .when('/createquiz', {
+            templateUrl: 'new-quizzen.html'
+        })
         
         .otherwise({
 			redirectTo: '/home'
@@ -170,11 +174,14 @@ theApp.controller('listSecCtrlr', function($scope,$http){
 
 
 theApp.controller('viewQuizzesCtrlr', function($scope, $http , sessionService , $location){
-   getLink = "http://localhost/restAPI/api/quizzes/read_quiz.php?admin_id="+ sessionService.get('user_id');; 
+   getLink = "/restAPI/api/quizzes/read_quiz.php?admin_id="+ sessionService.get('user_id');; 
    $http.get(getLink).then(function(response){
-//    $scope.titles = response.data;
-       console.log(response.data);
-      $scope.quizInfo = response.data;
+       if(response.data.message){
+           $scope.error = response.data.message;
+       }else{   
+        console.log(response.data);
+        $scope.quizInfo = response.data;
+       }
   }).catch(function(response){
     console.log(response);
   });    
@@ -184,7 +191,5 @@ theApp.controller('viewQuizzesCtrlr', function($scope, $http , sessionService , 
   	sessionService.destroy('user_id');
   	$location.path('/home');
   }
-
-});
 
 });

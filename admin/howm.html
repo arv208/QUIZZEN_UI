@@ -53,14 +53,20 @@
                 </div>
                 <div class="col-12">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Quiz Title">
+                        <input type="text" ng-model="myModel" class="form-control" placeholder="Quiz Title">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button">Search</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 mt-4">
-                    <div class="card mb-2" ng-repeat="info in quizInfo">
+                    <div class="col-12 text-center" ng-show="error">
+                        <h3>No quiz created.</h3>
+                        <p>
+                            <button class="btn btn-primary">Create now</button>
+                        </p>
+                    </div>
+                    <div class="card mb-2" ng-repeat="info in quizInfo | filter: myModel">
                         <div class="card-body">
                             <div class="row justify-content-center">
                                 <div class="col-3">
