@@ -19,7 +19,8 @@
         
         <title>Sign Up | Quizzen</title>
     </head>
-    <body>
+    <body ng-app="theApp">
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-6 px-5">
@@ -68,7 +69,7 @@
                             <input type="password" class="form-control" placeholder="Re-type password" ng-model="password2" required>
                         </div>
                         <div class="form-group">
-                            <input type="button" class="btn btn-outline-primary btn-block" value="Sign Up" ng-click="signUp()" ng-disabled="myForm.$invalid">
+                            <input type="button" class="btn btn-outline-primary btn-block" value="Sign Up" ng-click="signUp()"
                         </div>
                         <p class="text-primary text-center"><a href="#!/home">Already have an account? Sign In</a></p>
                     </form>
