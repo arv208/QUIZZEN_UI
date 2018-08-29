@@ -6,7 +6,7 @@ theApp.config(['$routeProvider', function($routeProvider) {
 		.when('/home' , {
 			resolve:{
 				"check": function ($location,sessionService){
-					if(sessionService.get('user')){
+					if(sessionService.get('user_id')){
 						$location.path('/myquizzen');
 					}
 				}
@@ -17,7 +17,7 @@ theApp.config(['$routeProvider', function($routeProvider) {
         .when('/myquizzen' , {
         	resolve:{
 				"check": function ($location,sessionService){
-					if(!sessionService.get('user')){
+					if(!sessionService.get('user_id')){
 						$location.path('/home');
 					}
 				}
@@ -28,7 +28,7 @@ theApp.config(['$routeProvider', function($routeProvider) {
         .when('/signup', {
         	resolve:{
 				"check": function ($location,sessionService){
-					if(sessionService.get('user')){
+					if(sessionService.get('user_id')){
 						$location.path('/myquizzen');
 					}
 				}
@@ -48,10 +48,9 @@ theApp.controller('logInCtrlr', function($scope,$http,sessionService){
 		//parse the data as json
 		 sendData = JSON.stringify({"sent_username" : $scope.angUsername , "sent_password" : $scope.angPassword});
 		 link = "http://localhost/restAPI/api/Hosts/login_hosts.php";
-		//post function provided by $http
 		$http.post(link,sendData).then(function(response){
 			if(response.data.success){
-				sessionService.set('user',response.data.session); // se
+				sessionService.set('user_id',response.data.session); 
                 window.location = "#!/myquizzen";
 			}else{
 				$scope.error = response.data;
@@ -167,15 +166,17 @@ theApp.controller('listSecCtrlr', function($scope,$http){
   
 
 theApp.controller('viewQuizzesCtrlr', function($scope, $http , sessionService , $location){
-   getLink = "http://localhost/restAPI/api/quizzes/read_quiz.php?admin_id=21"; 
+   getLink = "http://localhost/restAPI/api/quizzes/read_quiz.php?admin_id="+ sessionService.get('user_id');; 
    $http.get(getLink).then(function(response){
-    $scope.titles = response.data;
+//    $scope.titles = response.data;
+       console.log(response.data);
+      $scope.quizInfo = response.data;
   }).catch(function(response){
     console.log(response);
   });    
 
   $scope.signOut = function(){
-  	sessionService.destroy('user');
+  	sessionService.destroy('user_id');
   	$location.path('/home');
   }
 

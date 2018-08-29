@@ -13,7 +13,7 @@
         
         <title>Homepage | Quizzen</title>
     </head>
-    <body>
+    <body ng-app="theApp">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
             <a class="navbar-brand" href="home.html">
                 <img src="images/shape.png" width="30" height="30" class="d-inline-block align-top">
@@ -60,14 +60,14 @@
                     </div>
                 </div>
                 <div class="col-12 mt-4">
-                    <div class="card mb-2">
+                    <div class="card mb-2" ng-repeat="info in quizInfo">
                         <div class="card-body">
                             <div class="row justify-content-center">
                                 <div class="col-3">
                                     <img src="images/chris.jpg" style="width: 100%; height: 100%" class="img-fluid rounded">
                                 </div>
                                 <div class="col-9">
-                                    <h5 class="card-title mb-1">Question or question?</h5>
+                                    <h5 class="card-title mb-1">{{info.quizTitle}}</h5>
                                     <p class="text-primary">3 minutes ago</p>
                                 </div>
                             </div>                            
@@ -81,27 +81,7 @@
                             </button>                            
                         </div>
                     </div>
-                    <div class="card mb-2">
-                        <div class="card-body">
-                            <div class="row justify-content-center">
-                                <div class="col-3">
-                                    <img src="images/marianne.jpg" style="width: 100%; height: 100%" class="img-fluid rounded">
-                                </div>
-                                <div class="col-9">
-                                    <h5 class="card-title mb-1">Mao</h5>
-                                    <p class="text-primary">7 minutes ago</p>
-                                </div>
-                            </div>                            
-                        </div>
-                        <div class="card-footer text-right" style="background-color: white;">
-                            <a class="btn btn-warning" href="edit-quizzen.html">
-                                Edit <i class="fas fa-edit fa-xs"></i>
-                            </a>
-                            <button type="button" class="btn btn-success">
-                                Play <i class="fas fa-play fa-xs"></i>
-                            </button>                            
-                        </div>
-                    </div>
+                    
                 </div>                
             </div>
         </div>
