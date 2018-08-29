@@ -1,18 +1,40 @@
 var theApp = angular.module('theApp',['ngRoute']);
 
 theApp.config(['$routeProvider', function($routeProvider) {
-        //$locationProvider.html5Mode(true);
     
 	$routeProvider
 		.when('/home' , {
+			resolve:{
+				"check": function ($location,sessionService){
+					if(sessionService.get('user')){
+						$location.path('/myquizzen');
+					}
+				}
+			},
 			templateUrl: 'login.html',
             controller: 'logInCtrlr'
 		})
         .when('/myquizzen' , {
-			templateUrl: 'howm.html'
+        	resolve:{
+				"check": function ($location,sessionService){
+					if(!sessionService.get('user')){
+						$location.path('/home');
+					}
+				}
+			},
+			templateUrl: 'howm.html',
+            controller: 'viewQuizzesCtrlr'
 		})
         .when('/signup', {
-            templateUrl: 'signup.html'
+        	resolve:{
+				"check": function ($location,sessionService){
+					if(sessionService.get('user')){
+						$location.path('/myquizzen');
+					}
+				}
+			},
+            templateUrl: 'signup.html',
+            controller: 'registerCtrlr'
         })
         
         .otherwise({
@@ -21,7 +43,7 @@ theApp.config(['$routeProvider', function($routeProvider) {
 }]);
 
 
-theApp.controller('logInCtrlr', function($scope,$http){
+theApp.controller('logInCtrlr', function($scope,$http,sessionService){
 	$scope.logIn = function(){
 		//parse the data as json
 		 sendData = JSON.stringify({"sent_username" : $scope.angUsername , "sent_password" : $scope.angPassword});
@@ -30,6 +52,7 @@ theApp.controller('logInCtrlr', function($scope,$http){
 		$http.post(link,sendData).then(function(response){
 			if(response.data.success){
 				alert("yes!");
+				sessionService.set('user',$scope.angUsername); // se
                 window.location = "#!/myquizzen";
 			}else{
 				$scope.error = response.data;
@@ -41,7 +64,7 @@ theApp.controller('logInCtrlr', function($scope,$http){
 	};
 });
 
-theApp.controller('registerCtrlr', function($scope,$http){
+theApp.controller('registerCtrlr', function($scope,$http,$location){
 	$scope.signUp = function(){
 		sendData = JSON.stringify({"fname" : $scope.firstname , "mname" : $scope.middlename , "lname" : $scope.lastname  , "password" : $scope.password1 ,  "username" : $scope.username ,  "confirm_pw" : $scope.password2 });
 
@@ -50,6 +73,7 @@ theApp.controller('registerCtrlr', function($scope,$http){
 		$http.post(link,sendData).then(function(response){
 			if(response.data.success){
 				alert("yes!");
+				$location.path('/login');
 			}else{
 				$scope.error = response.data;
 			}
@@ -140,16 +164,24 @@ theApp.controller('listSecCtrlr', function($scope,$http){
   }).catch(function(response){
     console.log(response);
   });
-  
-  /*theApp.controller('triad',function($scope,$http){
-	getLink = 'http://localhost/restAPI/api/Hosts/list_courses.php'
-	$http.get(getLink).then(function(response){
-		$scope.replySections = response.data.sections;
-		$scope.selected = $scope.replySections[0];
-
-		console.log(response.data);
-	}).catch(function(response){
-		console.log(response);
-	});*/
+});
   
 
+theApp.controller('viewQuizzesCtrlr', function($scope, $http , sessionService , $location){
+   getLink = "http://localhost/restAPI/api/quizzes/read_quiz.php?admin_id=21"; 
+   $http.get(getLink).then(function(response){
+    $scope.titles = response.data;
+  }).catch(function(response){
+    console.log(response);
+  });    
+
+  $scope.signOut = function(){
+  	sessionService.destroy('user');
+  	$location.path('/home');
+  }
+
+});
+
+theApp.controller('triad', function($scope){
+	
+});
