@@ -1,0 +1,106 @@
+* {
+    font-family: Roboto-Regular;
+}
+
+body {
+    background-color: #fafbfd;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: ProductSans-Regular;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.student-pic-pro {
+    width: 130px;
+    height: 130px;
+}
+
+.question-pic {
+    width: 88.5px;
+    height: 88.5px;
+}
+
+.menu-container {
+    > li.list-group-item {
+        border: 0;
+        border-radius: 10px;
+        line-height: $menu-line-height;
+        margin-bottom: 5px;
+    }
+}
+
+.menu-option {
+    line-height: $menu-line-height;
+}
+
+.table {
+    thead th {
+        background-color: #fafbfd;
+        border: none;
+        color: #848d95;
+        padding-bottom: 5px;
+    }
+
+    tr {
+        background-color: white;
+    }
+
+    td {
+        border-top: $table-border;
+        border-bottom: $table-border;
+
+        &:first-child {
+            border-left: $table-border;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        &:last-child {
+            border-right: $table-border;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    }
+
+    td button {
+        width: 32%;
+    }
+}
+
+.default-avatar {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    color: rgba(0, 123, 255, 0.7);
+    background-color: rgba(0, 123, 255, 0.1);
+    text-align: center;
+    line-height: 46px;
+    font-weight: 600;
+    font-size: 20px;
+    border: 2px solid rgba(0, 123, 255, 0.7);
+}
+
+// .nav-profile {
+//     width: 100%;
+//     height: 100%;
+//     padding: 6px 15px;
+//     border-radius: 1.25rem;
+//     background-color: $qznsuccess;
+// }

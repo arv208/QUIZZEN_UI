@@ -4,10 +4,10 @@
         <!--    Required meta tags    -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+
         <!--    Bootstrap CSS    -->
-        <link rel="stylesheet" type="text/css" href="../css/app.css">
-        
+        <link rel="stylesheet" type="text/css" href="../scss/main.css">
+
         <!--    Font Awesome CSS    -->
         <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.css">
 
@@ -16,71 +16,114 @@
         <script type="text/javascript" src="../js/angular_modules.js"></script>
 
         <script type="text/javascript" src="../js/angular_controllers.js"></script>
-        
+
         <title>Homepage | Quizzen</title>
     </head>
     <body ng-app="theApp" ng-controller="listCtrlr">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom">
-            <a class="navbar-brand" href="home.html">
-                <img src="images/shape.png" width="30" height="30" class="d-inline-block align-top">
-                Quizzen
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="mainMenu">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Allen</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Marianne</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Chris</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Out</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        
-        <div class="container-fluid" style="margin-top: 80px;">
-            <div class="row">
-                <div class="col-12 px-5">
-                    <p class="text-center mb-3 h5">Student List</p>
+        <div class="container-fluid">
+            <div class="row" style="height: 100vh;">
+                <div class="position-fixed col-md-3 border-right" style="max-width: 20%; height: 100vh; flex: 0 0 20%; background-color: white;">
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <div class="media">
+                                <img class="mr-3" src="images/man.png">
+                                <div class="media-body">
+                                    <h5 class="mt-2 mb-0">Allen Villanueva</h5>
+                                    <span class="text-secondary">QZNUSR0208</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider mt-4"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="list-group menu-container list-group-flush">
+                                <li class="list-group-item">
+                                    <img src="images/house.png" class="mr-2">
+                                    Dashboard
+                                </li>
+                                <li class="list-group-item" data-toggle="collapse" data-target="#sectionCollapse">
+                                    <img src="images/teamwork.png" class="mr-2">
+                                    Section
+                                </li>
+                                <li class="list-group-item">
+                                    <img src="images/user.png" class="mr-2">
+                                    Student
+                                </li>
+                                <li class="list-group-item">
+                                    <img src="images/exam.png" class="mr-2">
+                                    Quizzes
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12 position-absolute" style="bottom: 0;">
+                            <ul class="list-group menu-container list-group-flush">
+                                <li class="list-group-item">
+                                    <img src="images/sign-out.png" class="mr-2">
+                                    Sign Out
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="col-12">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Student ID</th>
-                                    <th>First Name</th>
-                                    <th>Middle Name</th>
-                                    <th>Last Name</th>
-                                    <th>Section</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="student in students">
-                                    <td>{{student.student_id}}</td>
-                                    <td>{{student.firstname}}</td>
-                                    <td>{{student.middlename}}</td>
-                                    <td>{{student.lastname}}</td>
-                                    <td>{{student.course}} 4C-G1</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="col-md-10 ml-auto pl-5">
+                    <div class="col-md-12 d-flex float-left" style="height: 130px;">
+                        <div class="d-flex flex-column col-md-6 float-left">
+                            <p class="mt-4 mb-0 h1 text-qznprimary">Students</p>
+                            <p class="text-secondary">List of students</p>
+                        </div>
+                        <div class="d-flex justify-content-end align-items-center col-md-6 float-right text-right">
+                            <button class="btn btn-qznprimary">Add Student</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-4 input-group mb-3 float-left">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-qznprimary" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 dropdown float-left">
+                            <button class="btn bg-white dropdown-toggle" type="button" id="sort-dropdown" data-toggle="dropdown">Sort</button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Di ko</a>
+                                <a href="#" class="dropdown-item">pa din alam</a>
+                                <a href="#" class="dropdown-item">ilalagay</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex col-md-12">
+                        <div class="table-responsive ml-3">
+                            <table class="table" style="border-collapse: separate; border-spacing: 0 5px;">
+                                <thead>
+                                    <tr>
+                                        <th>Student ID</th>
+                                        <th>First Name</th>
+                                        <th>Middle Name</th>
+                                        <th>Last Name</th>
+                                        <th>Section</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="student in students">
+                                        <td>{{student.student_id}}</td>
+                                        <td>{{student.firstname}}</td>
+                                        <td>{{student.middlename}}</td>
+                                        <td>{{student.lastname}}</td>
+                                        <td>{{student.course}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../bootstrap/dist/js/bootstrap.bundle.js"></script>
         <script src="../js/script.js"></script>
